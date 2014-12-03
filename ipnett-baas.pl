@@ -320,6 +320,14 @@ sub main() {
                 $request =
                   rest_put_json("nodes/$nodename",
                     encode_json({ cost_center => $subarg }));
+            } elsif ($subreq
+                and ($subreq eq "mail"))
+            {
+                pod2usage(-message => "Missing mail") unless ($subarg);
+
+                $request =
+                  rest_put_json("nodes/$nodename",
+                    encode_json({ mail => $subarg }));
             } else {
                 pod2usage(-1);
             }
@@ -496,6 +504,7 @@ ipnett-baas [options] [command]
     set node [node] schedule [schedule]
     set node [node] platform [platform]
     set node [node] costcenter [cost center]
+    set node [node] mail [mail]
 
     delete domain [domain]
     delete user [username]
