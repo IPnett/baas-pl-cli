@@ -328,6 +328,14 @@ sub main() {
                 $request =
                   rest_put_json("nodes/$nodename",
                     encode_json({ mail => $subarg }));
+            } elsif ($subreq
+                and ($subreq eq "hostname"))
+            {
+                pod2usage(-message => "Missing hostname") unless ($subarg);
+
+                $request =
+                  rest_put_json("nodes/$nodename",
+                    encode_json({ hostname => $subarg }));
             } else {
                 pod2usage(-1);
             }
@@ -505,6 +513,7 @@ ipnett-baas [options] [command]
     set node [node] platform [platform]
     set node [node] costcenter [cost center]
     set node [node] mail [mail]
+    set node [node] hostname [hostname]
 
     delete domain [domain]
     delete user [username]
