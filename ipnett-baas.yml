@@ -2,3 +2,5 @@ endpoint: https://api.cloud.ipnett.se/tsm/
 access_key_id: username
 secret_access_key: password
 verify_hostname: 1
+#ca_path: /etc/ssl/certs
+#ca_file: /etc/ssl/ca.pem

@@ -145,6 +145,14 @@ sub main() {
         $ua->ssl_opts('verify_hostname' => $hashref->{verify_hostname});
     }
 
+    if (defined($hashref->{ca_file})) {
+        $ua->ssl_opts('SSL_ca_file' => $hashref->{ca_file});
+    }
+
+    if (defined($hashref->{ca_path})) {
+        $ua->ssl_opts('SSL_ca_path' => $hashref->{ca_path});
+    }
+
     # enforce TLS v1.2
     $ua->ssl_opts(SSL_version => 'TLSv12');
 
