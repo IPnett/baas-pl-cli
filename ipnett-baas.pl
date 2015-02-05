@@ -153,6 +153,10 @@ sub main() {
         $ua->ssl_opts('SSL_ca_path' => $hashref->{ca_path});
     }
 
+    if ($verbose > 1) {
+        $IO::Socket::SSL::DEBUG = 1;
+    }
+
     # enforce TLS v1.2
     $ua->ssl_opts(SSL_version => 'TLSv12');
 
