@@ -424,6 +424,7 @@ sub main() {
     if ($verbose) {
         print STDERR $response->status_line, "\n";
         print STDERR $response->headers->as_string, "\n" if ($verbose > 1);
+        print STDERR Dumper($response) if ($verbose > 1);
     } else {
         my $r = $response->code;
         if ($response->is_success) {
